@@ -87,7 +87,7 @@ public class DigestUtils {
      * @param algorithm
      *            the name of the algorithm requested. See <a href=
      *            "http://java.sun.com/j2se/1.3/docs/guide/security/CryptoSpec.html#AppA" >Appendix A in the Java
-     *            Cryptography Architecture API Specification & Reference</a> for information about standard algorithm
+     *            Cryptography Architecture API Specification &amp; Reference</a> for information about standard algorithm
      *            names.
      * @return a Message Digest object that implements the specified algorithm.
      * @see MessageDigest#getInstance(String)
@@ -115,7 +115,7 @@ public class DigestUtils {
      * @param algorithm
      *            the name of the algorithm requested. See <a href=
      *            "http://java.sun.com/j2se/1.3/docs/guide/security/CryptoSpec.html#AppA" >Appendix A in the Java
-     *            Cryptography Architecture API Specification & Reference</a> for information about standard algorithm
+     *            Cryptography Architecture API Specification &amp; Reference</a> for information about standard algorithm
      *            names.
      * @return the digest provider name in function of algorithm.
      * @since Commons Checksum 1.0
@@ -319,7 +319,7 @@ public class DigestUtils {
      * @param algorithm
      *            the name of the algorithm requested. See <a href=
      *            "http://java.sun.com/j2se/1.3/docs/guide/security/CryptoSpec.html#AppA" >Appendix A in the Java
-     *            Cryptography Architecture API Specification & Reference</a> for information about standard algorithm
+     *            Cryptography Architecture API Specification &amp; Reference</a> for information about standard algorithm
      *            names.
      * 
      * @return <code>true</code> if this digest algorithm is available; <code>false</code> otherwise.
@@ -714,13 +714,12 @@ public class DigestUtils {
      * @param algorithm
      *            the name of the algorithm requested. See <a href=
      *            "http://java.sun.com/j2se/1.3/docs/guide/security/CryptoSpec.html#AppA" >Appendix A in the Java
-     *            Cryptography Architecture API Specification & Reference</a> for information about standard algorithm
+     *            Cryptography Architecture API Specification &amp; Reference</a> for information about standard algorithm
      *            names.
      * @param providerName
      *            the digest provider name to associate to this algorithm.
-     * @throws NoSuchProviderException
-     * @throws NoSuchAlgorithmException
      * @since Commons Checksum 1.0
+     * @return <code>true</code> if this digest algorithm is available for this provider.
      */
     public static boolean registerPreferredProvider(String algorithm, String providerName) {
         try {

@@ -63,8 +63,7 @@ public class Fletcher32 implements Checksum {
     /**
      * Updates checksum with specified array of bytes.
      * 
-     * @param b
-     *            the array of bytes to update the checksum with
+     * @param b the array of bytes to update the checksum with
      * @since Commons Checksum 1.0
      */
     public void update(byte[] b) {
@@ -74,6 +73,9 @@ public class Fletcher32 implements Checksum {
     /**
      * Updates Fletcher-32 with specified array of bytes.
      * 
+     * @param b the byte array to update the checksum with
+     * @param off the start offset of the data
+     * @param len the number of bytes to use for the update
      * @since Commons Checksum 1.0
      */
     public void update(byte[] b, int off, int len) {
@@ -89,6 +91,7 @@ public class Fletcher32 implements Checksum {
     /**
      * Updates Fletcher-32 with specified byte.
      * 
+     * @param b the byte to update the checksum with
      * @since Commons Checksum 1.0
      */
     public void update(int b) {
@@ -99,6 +102,9 @@ public class Fletcher32 implements Checksum {
      * Updates Fletcher-32 with specified array of bytes.
      * 
      * @since Commons Checksum 1.0
+     * @param b the byte array to update the checksum with
+     * @param off the start offset of the data
+     * @param len the number of bytes to use for the update
      */
     private void updateBytes(byte[] b, int off, int len) {
         for (int i = off; i < len; i++) {

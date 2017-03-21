@@ -88,17 +88,17 @@ public class BinaryUtils {
      * Converts an int value to a byte array
      * 
      * @param value
-     *            the value to convert
+     * 		 the value to convert
      * @return returns the byte array representing this int value.
      * @since Commons Checksum 1.0
      */
-    public static byte[] toBytes(int val) {
+    public static byte[] toBytes(int value) {
         byte[] b = new byte[4];
         for (int i = 3; i > 0; i--) {
-            b[i] = (byte) (val);
-            val >>>= 8;
+            b[i] = (byte) (value);
+            value >>>= 8;
         }
-        b[0] = (byte) (val);
+        b[0] = (byte) (value);
         return b;
     }
 
