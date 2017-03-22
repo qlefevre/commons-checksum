@@ -31,9 +31,9 @@
 	</properties>
 
 	<scm>
-		<connection>scm:svn:http://commons-checksum.googlecode.com/svn/trunk/</connection>
-		<developerConnection>scm:svn:https://commons-checksum.googlecode.com/svn/trunk/</developerConnection>
-		<url>http://code.google.com/p/commons-checksum/source/browse/</url>
+		<connection>scm:git:ssh://git@github.com/qlefevre/commons-checksum.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/qlefevre/commons-checksum.git</developerConnection>
+		<url>https://github.com/qlefevre/commons-checksum</url>
 	</scm>
 
 	<distributionManagement>
