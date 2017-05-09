@@ -35,7 +35,7 @@ import com.google.code.commons.checksum.binary.BinaryUtils;
  * 
  * @author Apache Software Foundation
  * @author <a href="mailto:qlefevre+commons-checksum@gmail.com">Quentin Lefevre</a>
- * @version $Id: DigestUtils.java 30 2012-05-19 06:49:47Z qlefevre@gmail.com $
+ * 
  * @since Commons Checksum 1.0
  * @since Apache Commons Codec 1.5
  */

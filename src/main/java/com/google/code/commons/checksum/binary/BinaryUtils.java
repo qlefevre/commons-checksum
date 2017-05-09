@@ -29,7 +29,7 @@ import java.io.UnsupportedEncodingException;
  * 
  * @author Apache Software Foundation
  * @author <a href="mailto:qlefevre+commons-checksum@gmail.com">Quentin Lefevre</a>
- * @version $Id: BinaryUtils.java 22 2011-09-06 12:09:21Z qlefevre $
+ * 
  * @since Commons Checksum 1.0
  */
 public class BinaryUtils {

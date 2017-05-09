@@ -31,7 +31,7 @@ import com.google.code.commons.checksum.digest.DigestUtils;
  * class is thread safe.
  * 
  * @author <a href="mailto:qlefevre+commons-checksum@gmail.com">Quentin Lefevre</a>
- * @version $Id: ChecksumUtils.java 30 2012-05-19 06:49:47Z qlefevre@gmail.com $
+ * 
  * @since Commons Checksum 1.0
  */
 public class ChecksumUtils extends DigestUtils {
