@@ -53,20 +53,20 @@ Oracle JDK offers 6 digest algorithms : MD2, MD5, SHA-1, SHA-256, SHA-384, SHA-5
 
 | Digest | Oracle JDK 1.8> | Oracle JDK 1.6> | Bouncy Castle | 
 |--------|-----------------|-----------------|---------------| 
-| MD2 | yes | yes | yes |
-| MD4 | no | no | yes |
-| MD5 | yes | yes | yes |
-| RIPEMD-128 | no | no | yes |
-| RIPEMD-160 | no | no | yes |
-| RIPEMD-256 | no | no | yes |
-| RIPEMD-320 | no | no | yes |
-| SHA-1 | yes | yes | yes |
-| SHA-224 | yes | no | yes |
-| SHA-256 | yes | yes | yes |
-| SHA-384 | yes | yes | yes |
-| SHA-512 | yes | yes | yes |
-| Tiger | no | no | yes |
-| Whirlpool | no | no | yes |
+| MD2 | **yes** | **yes**| **yes** |
+| MD4 | no | no | **yes** |
+| MD5 | **yes** | **yes** | **yes** |
+| RIPEMD-128 | no | no | **yes** |
+| RIPEMD-160 | no | no | **yes** |
+| RIPEMD-256 | no | no | **yes** |
+| RIPEMD-320 | no | no | **yes** |
+| SHA-1 | **yes** | **yes** | **yes** |
+| SHA-224 | **yes** | no | **yes** |
+| SHA-256 | **yes** | **yes** | **yes** |
+| SHA-384 | **yes** | **yes** | **yes** |
+| SHA-512 | **yes** | **yes** | **yes** |
+| Tiger | no | no | **yes** |
+| Whirlpool | no | no | **yes** |
 
 See: 
 * Bouncy Castle : org.bouncycastle.jce.provider.JDKMessageDigest
