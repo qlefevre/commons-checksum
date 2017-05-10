@@ -24,6 +24,16 @@ A new class ChecksumUtils which extends DigestUtils was added. It handles checks
 * CRC-32
 * Fletcher-32
 
+# Installation
+To use the latest release of commons-checksum, please use the following snippet in your pom.xml.
+```xml
+<dependency>
+    <groupId>com.github.qlefevre</groupId>
+    <artifactId>commons-checksum</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
 # Two Minute Tutorial
 
 There are six method signatures for each algorithm as described below :
@@ -75,12 +85,13 @@ See:
 # Configuring Bouncy Castle
 
 If you have a mavenized project, you can add this dependency : 
+```xml
 <dependency>
  <groupId>org.bouncycastle</groupId>
  <artifactId>bcprov-ext-jdk16</artifactId>
  <version>1.46</version>
 </dependency>
- 
+```
  You can now use the Whirlpool digest. You just have to register the provider programatically 
 ```java
 Security.addProvider(new BouncyCastleProvider());
