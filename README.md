@@ -59,7 +59,7 @@ String whirlpoolHex = ChecksumUtils.whirlpoolHex(HELLO_WORLD_STRING);
 ```
 # Note
 
-Oracle JDK offers 6 digest algorithms : MD2, MD5, SHA-1, SHA-256, SHA-384, SHA-512.
+Oracle JDK 8 offers [7 digest algorithms](https://docs.oracle.com/javase/8/docs/technotes/guides/security/SunProviders.html#SUNProvider) : MD2, MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512.
 
 | Digest | Oracle JDK 1.8> | Oracle JDK 1.6> | Bouncy Castle | 
 |--------|-----------------|-----------------|---------------| 
