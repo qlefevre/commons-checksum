@@ -67,6 +67,7 @@ public class TestDigestUtilsWithoutBouncyCastle extends AbstractTestCommonsCheck
      */
     @Test
     public void isAvailable() {
+    	Assert.assertFalse(DigestUtils.isGost3411Available());
         Assert.assertTrue(DigestUtils.isMd2Available());
         Assert.assertFalse(DigestUtils.isMd4Available());
         Assert.assertTrue(DigestUtils.isMd5Available());
@@ -79,6 +80,7 @@ public class TestDigestUtilsWithoutBouncyCastle extends AbstractTestCommonsCheck
         Assert.assertTrue(DigestUtils.isSha256Available());
         Assert.assertTrue(DigestUtils.isSha384Available());
         Assert.assertTrue(DigestUtils.isSha512Available());
+        Assert.assertFalse(DigestUtils.isSM3Available());
         Assert.assertFalse(DigestUtils.isTigerAvailable());
         Assert.assertFalse(DigestUtils.isWhirlpoolAvailable());
     }

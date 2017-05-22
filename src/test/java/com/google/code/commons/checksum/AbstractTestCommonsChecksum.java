@@ -17,7 +17,9 @@
 
 package com.google.code.commons.checksum;
 
-import java.io.InputStream;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
@@ -30,16 +32,24 @@ import org.apache.commons.codec.binary.Hex;
  */
 public abstract class AbstractTestCommonsChecksum {
 
+    public static final String ABC_STRING = "abc";
+
+    public static final byte[] ABC_BYTE_ARRAY = ABC_STRING.getBytes();
+	
     public static final String HELLO_WORLD_STRING = "Hello World";
 
     public static final byte[] HELLO_WORLD_BYTE_ARRAY = HELLO_WORLD_STRING.getBytes();
 
-    public static byte[] hexToBytes(String value) throws DecoderException {
-        return Hex.decodeHex(value.toCharArray());
+    public static byte[] hexToBytes(Map<String,String> checksumMap,String algorithm) throws DecoderException {
+        return Hex.decodeHex(checksumMap.get(algorithm).toCharArray());
     }
-
-    protected InputStream getHelloWorldInputStream() {
-        return getClass().getResourceAsStream("/Hello World.txt");
+    
+    protected static Map<String,String> toMap(String[][] checksumsArray){
+    	Map<String,String> checksums = new HashMap<String,String>();
+    	for(String[] checksumPair : checksumsArray){
+    		checksums.put(checksumPair[0], checksumPair[1]);
+    	}
+    	return Collections.unmodifiableMap(checksums);
     }
 
 }

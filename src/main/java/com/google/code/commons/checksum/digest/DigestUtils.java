@@ -126,6 +126,18 @@ public class DigestUtils {
         }
         return null;
     }
+    
+    /**
+     * Returns an GOST3411 MessageDigest.
+     * 
+     * @return An GOST3411 digest instance.
+     * @throws RuntimeException
+     *             when a {@link java.security.NoSuchAlgorithmException} is caught.
+     * @since Commons Checksum 1.1
+     */
+    private static MessageDigest getGost3411Digest() {
+        return getDigest("GOST3411");
+    }
 
     /**
      * Returns an MD2 MessageDigest.
@@ -284,6 +296,22 @@ public class DigestUtils {
     }
 
     /**
+     * Returns an SM3 digest.
+     * <p>
+     * Throws a <code>RuntimeException</code> on JRE versions prior to 1.4.0.
+     * </p>
+     * 
+     * @return An SM3 digest instance.
+     * @throws RuntimeException
+     *             when a {@link java.security.NoSuchAlgorithmException} is caught.
+     * @since Commons Checksum 1.1
+     */
+    private static MessageDigest getSm3Digest() {
+        return getDigest("SM3");
+    }
+
+    
+    /**
      * Returns an Tiger digest.
      * <p>
      * Throws a <code>RuntimeException</code> on JRE versions prior to 1.4.0.
@@ -314,7 +342,7 @@ public class DigestUtils {
     }
 
     /**
-     * Return <code>true</code> if this digest algorithm is available; <code>false</code> otherwise.
+     * Return <code>true</code> if this digest algorithm is available, <code>false</code> otherwise.
      * 
      * @param algorithm
      *            the name of the algorithm requested. See <a href=
@@ -322,7 +350,7 @@ public class DigestUtils {
      *            Cryptography Architecture API Specification &amp; Reference</a> for information about standard algorithm
      *            names.
      * 
-     * @return <code>true</code> if this digest algorithm is available; <code>false</code> otherwise.
+     * @return <code>true</code> if this digest algorithm is available, <code>false</code> otherwise.
      * @since Commons Checksum 1.0
      */
     public static boolean isDigestAvailable(String algorithm) {
@@ -333,11 +361,21 @@ public class DigestUtils {
         }
         return true;
     }
-
+    
     /**
-     * Return <code>true</code> if MD2 digest algorithm is available; <code>false</code> otherwise.
+     * Return <code>true</code> if GOST3411 digest algorithm is available, <code>false</code> otherwise.
      * 
-     * @return <code>true</code> if MD2 digest algorithm is available; <code>false</code> otherwise.
+     * @return <code>true</code> if GOST3411 digest algorithm is available, <code>false</code> otherwise.
+     * @since Commons Checksum 1.1
+     */
+    public static boolean isGost3411Available() {
+        return isDigestAvailable("GOST3411");
+    }
+    
+    /**
+     * Return <code>true</code> if MD2 digest algorithm is available, <code>false</code> otherwise.
+     * 
+     * @return <code>true</code> if MD2 digest algorithm is available, <code>false</code> otherwise.
      * @since Commons Checksum 1.0
      */
     public static boolean isMd2Available() {
@@ -345,9 +383,9 @@ public class DigestUtils {
     }
 
     /**
-     * Return <code>true</code> if MD4 digest algorithm is available; <code>false</code> otherwise.
+     * Return <code>true</code> if MD4 digest algorithm is available, <code>false</code> otherwise.
      * 
-     * @return <code>true</code> if MD4 digest algorithm is available; <code>false</code> otherwise.
+     * @return <code>true</code> if MD4 digest algorithm is available, <code>false</code> otherwise.
      * @since Commons Checksum 1.0
      */
     public static boolean isMd4Available() {
@@ -355,9 +393,9 @@ public class DigestUtils {
     }
 
     /**
-     * Return <code>true</code> if MD5 digest algorithm is available; <code>false</code> otherwise.
+     * Return <code>true</code> if MD5 digest algorithm is available, <code>false</code> otherwise.
      * 
-     * @return <code>true</code> if MD5 digest algorithm is available; <code>false</code> otherwise.
+     * @return <code>true</code> if MD5 digest algorithm is available, <code>false</code> otherwise.
      * @since Commons Checksum 1.0
      */
     public static boolean isMd5Available() {
@@ -365,9 +403,9 @@ public class DigestUtils {
     }
 
     /**
-     * Return <code>true</code> if RIPEMD-128 digest algorithm is available; <code>false</code> otherwise.
+     * Return <code>true</code> if RIPEMD-128 digest algorithm is available, <code>false</code> otherwise.
      * 
-     * @return <code>true</code> if RIPEMD-128 digest algorithm is available; <code>false</code> otherwise.
+     * @return <code>true</code> if RIPEMD-128 digest algorithm is available, <code>false</code> otherwise.
      * @since Commons Checksum 1.0
      */
     public static boolean isRipmed128Available() {
@@ -375,9 +413,9 @@ public class DigestUtils {
     }
 
     /**
-     * Return <code>true</code> if RIPEMD-160 digest algorithm is available; <code>false</code> otherwise.
+     * Return <code>true</code> if RIPEMD-160 digest algorithm is available, <code>false</code> otherwise.
      * 
-     * @return <code>true</code> if RIPEMD-160 digest algorithm is available; <code>false</code> otherwise.
+     * @return <code>true</code> if RIPEMD-160 digest algorithm is available, <code>false</code> otherwise.
      * @since Commons Checksum 1.0
      */
     public static boolean isRipmed160Available() {
@@ -385,9 +423,9 @@ public class DigestUtils {
     }
 
     /**
-     * Return <code>true</code> if RIPEMD-256 digest algorithm is available; <code>false</code> otherwise.
+     * Return <code>true</code> if RIPEMD-256 digest algorithm is available, <code>false</code> otherwise.
      * 
-     * @return <code>true</code> if RIPEMD-256 digest algorithm is available; <code>false</code> otherwise.
+     * @return <code>true</code> if RIPEMD-256 digest algorithm is available, <code>false</code> otherwise.
      * @since Commons Checksum 1.0
      */
     public static boolean isRipmed256Available() {
@@ -395,9 +433,9 @@ public class DigestUtils {
     }
 
     /**
-     * Return <code>true</code> if RIPEMD-320 digest algorithm is available; <code>false</code> otherwise.
+     * Return <code>true</code> if RIPEMD-320 digest algorithm is available, <code>false</code> otherwise.
      * 
-     * @return <code>true</code> if RIPEMD-320 digest algorithm is available; <code>false</code> otherwise.
+     * @return <code>true</code> if RIPEMD-320 digest algorithm is available, <code>false</code> otherwise.
      * @since Commons Checksum 1.0
      */
     public static boolean isRipmed320Available() {
@@ -405,9 +443,9 @@ public class DigestUtils {
     }
 
     /**
-     * Return <code>true</code> if SHA-1 digest algorithm is available; <code>false</code> otherwise.
+     * Return <code>true</code> if SHA-1 digest algorithm is available, <code>false</code> otherwise.
      * 
-     * @return <code>true</code> if SHA-1 digest algorithm is available; <code>false</code> otherwise.
+     * @return <code>true</code> if SHA-1 digest algorithm is available, <code>false</code> otherwise.
      * @since Commons Checksum 1.0
      */
     public static boolean isSha1Available() {
@@ -415,9 +453,9 @@ public class DigestUtils {
     }
 
     /**
-     * Return <code>true</code> if SHA-224 digest algorithm is available; <code>false</code> otherwise.
+     * Return <code>true</code> if SHA-224 digest algorithm is available, <code>false</code> otherwise.
      * 
-     * @return <code>true</code> if SHA-224 digest algorithm is available; <code>false</code> otherwise.
+     * @return <code>true</code> if SHA-224 digest algorithm is available, <code>false</code> otherwise.
      * @since Commons Checksum 1.0
      */
     public static boolean isSha224Available() {
@@ -425,9 +463,9 @@ public class DigestUtils {
     }
 
     /**
-     * Return <code>true</code> if SHA-256 digest algorithm is available; <code>false</code> otherwise.
+     * Return <code>true</code> if SHA-256 digest algorithm is available, <code>false</code> otherwise.
      * 
-     * @return <code>true</code> if SHA-256 digest algorithm is available; <code>false</code> otherwise.
+     * @return <code>true</code> if SHA-256 digest algorithm is available, <code>false</code> otherwise.
      * @since Commons Checksum 1.0
      */
     public static boolean isSha256Available() {
@@ -435,9 +473,9 @@ public class DigestUtils {
     }
 
     /**
-     * Return <code>true</code> if SHA-384 digest algorithm is available; <code>false</code> otherwise.
+     * Return <code>true</code> if SHA-384 digest algorithm is available, <code>false</code> otherwise.
      * 
-     * @return <code>true</code> if SHA-384 digest algorithm is available; <code>false</code> otherwise.
+     * @return <code>true</code> if SHA-384 digest algorithm is available, <code>false</code> otherwise.
      * @since Commons Checksum 1.0
      */
     public static boolean isSha384Available() {
@@ -445,19 +483,29 @@ public class DigestUtils {
     }
 
     /**
-     * Return <code>true</code> if SHA-512 digest algorithm is available; <code>false</code> otherwise.
+     * Return <code>true</code> if SHA-512 digest algorithm is available, <code>false</code> otherwise.
      * 
-     * @return <code>true</code> if SHA-512 digest algorithm is available; <code>false</code> otherwise.
+     * @return <code>true</code> if SHA-512 digest algorithm is available, <code>false</code> otherwise.
      * @since Commons Checksum 1.0
      */
     public static boolean isSha512Available() {
         return isDigestAvailable("SHA-512");
     }
-
+    
     /**
-     * Return <code>true</code> if Tiger digest algorithm is available; <code>false</code> otherwise.
+     * Return <code>true</code> if SM3 digest algorithm is available, <code>false</code> otherwise.
      * 
-     * @return <code>true</code> if Tiger digest algorithm is available; <code>false</code> otherwise.
+     * @return <code>true</code> if SM3 digest algorithm is available, <code>false</code> otherwise.
+     * @since Commons Checksum 1.1
+     */
+    public static boolean isSM3Available() {
+        return isDigestAvailable("SM3");
+    }
+    
+    /**
+     * Return <code>true</code> if Tiger digest algorithm is available, <code>false</code> otherwise.
+     * 
+     * @return <code>true</code> if Tiger digest algorithm is available, <code>false</code> otherwise.
      * @since Commons Checksum 1.0
      */
     public static boolean isTigerAvailable() {
@@ -465,9 +513,9 @@ public class DigestUtils {
     }
 
     /**
-     * Return <code>true</code> if Whirlpool digest algorithm is available; <code>false</code> otherwise.
+     * Return <code>true</code> if Whirlpool digest algorithm is available, <code>false</code> otherwise.
      * 
-     * @return <code>true</code> if Whirlpool digest algorithm is available; <code>false</code> otherwise.
+     * @return <code>true</code> if Whirlpool digest algorithm is available, <code>false</code> otherwise.
      * @since Commons Checksum 1.0
      */
     public static boolean isWhirlpoolAvailable() {
@@ -484,6 +532,84 @@ public class DigestUtils {
      */
     public static byte[] md2(byte[] data) {
         return getMd2Digest().digest(data);
+    }
+
+    /**
+     * Calculates the GOST3411 digest and returns the value as a 16 element <code>byte[]</code>.
+     * 
+     * @param data
+     *            Data to digest
+     * @return GOST3411 digest
+     * @throws IOException
+     *             On error reading from the stream
+     * @since 1.4
+     * @since Commons Checksum 1.1
+     */
+    public static byte[] gost3411(InputStream data) throws IOException {
+        return digest(getGost3411Digest(), data);
+    }
+
+    /**
+     * Calculates the GOST3411 digest and returns the value as a 16 element <code>byte[]</code>.
+     * 
+     * @param data
+     *            Data to digest
+     * @return GOST3411 digest
+     * @since Commons Checksum 1.1
+     */
+    public static byte[] gost3411(String data) {
+        return gost3411(getBytesUtf8(data));
+    }
+
+    /**
+     * Calculates the GOST3411 digest and returns the value as a 32 character hex string.
+     * 
+     * @param data
+     *            Data to digest
+     * @return GOST3411 digest as a hex string
+     * @since Commons Checksum 1.1
+     */
+    public static String gost3411Hex(byte[] data) {
+        return BinaryUtils.encodeHexString(gost3411(data));
+    }
+
+    /**
+     * Calculates the GOST3411 digest and returns the value as a 32 character hex string.
+     * 
+     * @param data
+     *            Data to digest
+     * @return GOST3411 digest as a hex string
+     * @throws IOException
+     *             On error reading from the stream
+     * @since 1.4
+     * @since Commons Checksum 1.1
+     */
+    public static String gost3411Hex(InputStream data) throws IOException {
+        return BinaryUtils.encodeHexString(gost3411(data));
+    }
+
+    /**
+     * Calculates the GOST3411 digest and returns the value as a 32 character hex string.
+     * 
+     * @param data
+     *            Data to digest
+     * @return GOST3411 digest as a hex string
+     * @since Commons Checksum 1.1
+     */
+    public static String gost3411Hex(String data) {
+        return BinaryUtils.encodeHexString(gost3411(data));
+    }
+    
+    /**
+     * Calculates the GOST3411 digest and returns the value as a 16 element <code>byte[]</code>.
+     * 
+     * @param data
+     *            Data to digest
+     * @return GOST3411 digest
+     * @since Commons Checksum 1.1
+     */
+    public static byte[] gost3411(byte[] data) {
+        return getGost3411Digest().digest(data);
     }
 
     /**
@@ -1523,6 +1649,106 @@ public class DigestUtils {
         return BinaryUtils.encodeHexString(sha512(data));
     }
 
+    /**
+     * Calculates the SM3 digest and returns the value as a 32 element <code>byte[]</code>.
+     * <p>
+     * Throws a <code>RuntimeException</code> on JRE versions prior to 1.4.0.
+     * </p>
+     * 
+     * @param data
+     *            Data to digest
+     * @return SM3 digest
+     * @since 1.4
+     * @since Commons Checksum 1.1
+     */
+    public static byte[] sm3(byte[] data) {
+        return getSm3Digest().digest(data);
+    }
+
+    /**
+     * Calculates the SM3 digest and returns the value as a 32 element <code>byte[]</code>.
+     * <p>
+     * Throws a <code>RuntimeException</code> on JRE versions prior to 1.4.0.
+     * </p>
+     * 
+     * @param data
+     *            Data to digest
+     * @return SM3 digest
+     * @throws IOException
+     *             On error reading from the stream
+     * @since 1.4
+     * @since Commons Checksum 1.1
+     */
+    public static byte[] sm3(InputStream data) throws IOException {
+        return digest(getSm3Digest(), data);
+    }
+
+    /**
+     * Calculates the SM3 digest and returns the value as a 32 element <code>byte[]</code>.
+     * <p>
+     * Throws a <code>RuntimeException</code> on JRE versions prior to 1.4.0.
+     * </p>
+     * 
+     * @param data
+     *            Data to digest
+     * @return SM3 digest
+     * @since 1.4
+     * @since Commons Checksum 1.1
+     */
+    public static byte[] sm3(String data) {
+        return sm3(getBytesUtf8(data));
+    }
+
+    /**
+     * Calculates the SM3 digest and returns the value as a 64 character hex string.
+     * <p>
+     * Throws a <code>RuntimeException</code> on JRE versions prior to 1.4.0.
+     * </p>
+     * 
+     * @param data
+     *            Data to digest
+     * @return SM3 digest as a hex string
+     * @since 1.4
+     * @since Commons Checksum 1.1
+     */
+    public static String sm3Hex(byte[] data) {
+        return BinaryUtils.encodeHexString(sm3(data));
+    }
+
+    /**
+     * Calculates the SM3 digest and returns the value as a 64 character hex string.
+     * <p>
+     * Throws a <code>RuntimeException</code> on JRE versions prior to 1.4.0.
+     * </p>
+     * 
+     * @param data
+     *            Data to digest
+     * @return SM3 digest as a hex string
+     * @throws IOException
+     *             On error reading from the stream
+     * @since 1.4
+     * @since Commons Checksum 1.1
+     */
+    public static String sm3Hex(InputStream data) throws IOException {
+        return BinaryUtils.encodeHexString(sm3(data));
+    }
+
+    /**
+     * Calculates the SM3 digest and returns the value as a 64 character hex string.
+     * <p>
+     * Throws a <code>RuntimeException</code> on JRE versions prior to 1.4.0.
+     * </p>
+     * 
+     * @param data
+     *            Data to digest
+     * @return SM3 digest as a hex string
+     * @since 1.4
+     * @since Commons Checksum 1.1
+     */
+    public static String sm3Hex(String data) {
+        return BinaryUtils.encodeHexString(sm3(data));
+    }
+    
     /**
      * Calculates the Tiger digest and returns the value as a 24 element <code>byte[]</code>.
      * 

@@ -17,6 +17,7 @@
 
 package com.google.code.commons.checksum.digest;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.security.Security;
 
@@ -53,8 +54,8 @@ public class TestDigestUtilsWithCommonsCodec extends AbstractTestCommonsChecksum
         md5 = DigestUtils.md5(HELLO_WORLD_BYTE_ARRAY);
         codecMd5 = org.apache.commons.codec.digest.DigestUtils.md5(HELLO_WORLD_BYTE_ARRAY);
         Assert.assertArrayEquals(codecMd5, md5);
-        md5 = DigestUtils.md5(getHelloWorldInputStream());
-        codecMd5 = org.apache.commons.codec.digest.DigestUtils.md5(getHelloWorldInputStream());
+        md5 = DigestUtils.md5(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
+        codecMd5 = org.apache.commons.codec.digest.DigestUtils.md5(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
         Assert.assertArrayEquals(codecMd5, md5);
     }
 
@@ -68,8 +69,8 @@ public class TestDigestUtilsWithCommonsCodec extends AbstractTestCommonsChecksum
         md5Hex = DigestUtils.md5Hex(HELLO_WORLD_BYTE_ARRAY);
         codecMd5Hex = org.apache.commons.codec.digest.DigestUtils.md5Hex(HELLO_WORLD_BYTE_ARRAY);
         Assert.assertEquals(codecMd5Hex, md5Hex);
-        md5Hex = DigestUtils.md5Hex(getHelloWorldInputStream());
-        codecMd5Hex = org.apache.commons.codec.digest.DigestUtils.md5Hex(getHelloWorldInputStream());
+        md5Hex = DigestUtils.md5Hex(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
+        codecMd5Hex = org.apache.commons.codec.digest.DigestUtils.md5Hex(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
         Assert.assertEquals(codecMd5Hex, md5Hex);
     }
 
@@ -88,8 +89,8 @@ public class TestDigestUtilsWithCommonsCodec extends AbstractTestCommonsChecksum
         sha1 = DigestUtils.sha1(HELLO_WORLD_BYTE_ARRAY);
         codecSha1 = org.apache.commons.codec.digest.DigestUtils.sha(HELLO_WORLD_BYTE_ARRAY);
         Assert.assertArrayEquals(codecSha1, sha1);
-        sha1 = DigestUtils.sha1(getHelloWorldInputStream());
-        codecSha1 = org.apache.commons.codec.digest.DigestUtils.sha(getHelloWorldInputStream());
+        sha1 = DigestUtils.sha1(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
+        codecSha1 = org.apache.commons.codec.digest.DigestUtils.sha(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
         Assert.assertArrayEquals(codecSha1, sha1);
     }
 
@@ -103,8 +104,8 @@ public class TestDigestUtilsWithCommonsCodec extends AbstractTestCommonsChecksum
         sha1Hex = DigestUtils.sha1Hex(HELLO_WORLD_BYTE_ARRAY);
         codecSha1Hex = org.apache.commons.codec.digest.DigestUtils.shaHex(HELLO_WORLD_BYTE_ARRAY);
         Assert.assertEquals(codecSha1Hex, sha1Hex);
-        sha1Hex = DigestUtils.sha1Hex(getHelloWorldInputStream());
-        codecSha1Hex = org.apache.commons.codec.digest.DigestUtils.shaHex(getHelloWorldInputStream());
+        sha1Hex = DigestUtils.sha1Hex(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
+        codecSha1Hex = org.apache.commons.codec.digest.DigestUtils.shaHex(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
         Assert.assertEquals(codecSha1Hex, sha1Hex);
     }
 
@@ -118,8 +119,8 @@ public class TestDigestUtilsWithCommonsCodec extends AbstractTestCommonsChecksum
         sha256 = DigestUtils.sha256(HELLO_WORLD_BYTE_ARRAY);
         codecSha256 = org.apache.commons.codec.digest.DigestUtils.sha256(HELLO_WORLD_BYTE_ARRAY);
         Assert.assertArrayEquals(codecSha256, sha256);
-        sha256 = DigestUtils.sha256(getHelloWorldInputStream());
-        codecSha256 = org.apache.commons.codec.digest.DigestUtils.sha256(getHelloWorldInputStream());
+        sha256 = DigestUtils.sha256(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
+        codecSha256 = org.apache.commons.codec.digest.DigestUtils.sha256(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
         Assert.assertArrayEquals(codecSha256, sha256);
     }
 
@@ -133,8 +134,8 @@ public class TestDigestUtilsWithCommonsCodec extends AbstractTestCommonsChecksum
         sha256Hex = DigestUtils.sha256Hex(HELLO_WORLD_BYTE_ARRAY);
         codecSha256hex = org.apache.commons.codec.digest.DigestUtils.sha256Hex(HELLO_WORLD_BYTE_ARRAY);
         Assert.assertEquals(codecSha256hex, sha256Hex);
-        sha256Hex = DigestUtils.sha256Hex(getHelloWorldInputStream());
-        codecSha256hex = org.apache.commons.codec.digest.DigestUtils.sha256Hex(getHelloWorldInputStream());
+        sha256Hex = DigestUtils.sha256Hex(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
+        codecSha256hex = org.apache.commons.codec.digest.DigestUtils.sha256Hex(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
         Assert.assertEquals(codecSha256hex, sha256Hex);
     }
 
@@ -148,8 +149,8 @@ public class TestDigestUtilsWithCommonsCodec extends AbstractTestCommonsChecksum
         sha384 = DigestUtils.sha384(HELLO_WORLD_BYTE_ARRAY);
         codecSha384 = org.apache.commons.codec.digest.DigestUtils.sha384(HELLO_WORLD_BYTE_ARRAY);
         Assert.assertArrayEquals(codecSha384, sha384);
-        sha384 = DigestUtils.sha384(getHelloWorldInputStream());
-        codecSha384 = org.apache.commons.codec.digest.DigestUtils.sha384(getHelloWorldInputStream());
+        sha384 = DigestUtils.sha384(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
+        codecSha384 = org.apache.commons.codec.digest.DigestUtils.sha384(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
         Assert.assertArrayEquals(codecSha384, sha384);
     }
 
@@ -163,8 +164,8 @@ public class TestDigestUtilsWithCommonsCodec extends AbstractTestCommonsChecksum
         sha384Hex = DigestUtils.sha384Hex(HELLO_WORLD_BYTE_ARRAY);
         codecSha384hex = org.apache.commons.codec.digest.DigestUtils.sha384Hex(HELLO_WORLD_BYTE_ARRAY);
         Assert.assertEquals(codecSha384hex, sha384Hex);
-        sha384Hex = DigestUtils.sha384Hex(getHelloWorldInputStream());
-        codecSha384hex = org.apache.commons.codec.digest.DigestUtils.sha384Hex(getHelloWorldInputStream());
+        sha384Hex = DigestUtils.sha384Hex(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
+        codecSha384hex = org.apache.commons.codec.digest.DigestUtils.sha384Hex(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
         Assert.assertEquals(codecSha384hex, sha384Hex);
     }
 
@@ -178,8 +179,8 @@ public class TestDigestUtilsWithCommonsCodec extends AbstractTestCommonsChecksum
         sha512 = DigestUtils.sha512(HELLO_WORLD_BYTE_ARRAY);
         codecSha512 = org.apache.commons.codec.digest.DigestUtils.sha512(HELLO_WORLD_BYTE_ARRAY);
         Assert.assertArrayEquals(codecSha512, sha512);
-        sha512 = DigestUtils.sha512(getHelloWorldInputStream());
-        codecSha512 = org.apache.commons.codec.digest.DigestUtils.sha512(getHelloWorldInputStream());
+        sha512 = DigestUtils.sha512(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
+        codecSha512 = org.apache.commons.codec.digest.DigestUtils.sha512(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
         Assert.assertArrayEquals(codecSha512, sha512);
     }
 
@@ -193,8 +194,8 @@ public class TestDigestUtilsWithCommonsCodec extends AbstractTestCommonsChecksum
         sha512Hex = DigestUtils.sha512Hex(HELLO_WORLD_BYTE_ARRAY);
         codecSha512hex = org.apache.commons.codec.digest.DigestUtils.sha512Hex(HELLO_WORLD_BYTE_ARRAY);
         Assert.assertEquals(codecSha512hex, sha512Hex);
-        sha512Hex = DigestUtils.sha512Hex(getHelloWorldInputStream());
-        codecSha512hex = org.apache.commons.codec.digest.DigestUtils.sha512Hex(getHelloWorldInputStream());
+        sha512Hex = DigestUtils.sha512Hex(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
+        codecSha512hex = org.apache.commons.codec.digest.DigestUtils.sha512Hex(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
         Assert.assertEquals(codecSha512hex, sha512Hex);
     }
 

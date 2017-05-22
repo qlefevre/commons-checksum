@@ -17,8 +17,10 @@
 
 package com.google.code.commons.checksum;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.security.Security;
+import java.util.Map;
 
 import org.apache.commons.codec.DecoderException;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
@@ -35,11 +37,11 @@ import org.junit.Test;
  */
 public class TestChecksumUtils extends AbstractTestCommonsChecksum {
 
-    public static final String HELLO_WORLD_ADLER32_HEX = "180b041d";
-
-    public static final String HELLO_WORLD_CRC32_HEX = "4a17b156";
-
-    public static final String HELLO_WORLD_FLETCHER32_HEX = "1800041c";
+    public static final Map<String,String> HELLO_WORLD_CHECKSUMS = toMap(new String[][]{
+		{ "ADLER32", "180b041d" },
+	    { "CRC32", "4a17b156" },
+	    { "FLETCHER32", "1800041c"}
+	});
 
     @Before
     public void addBouncyCastleProvider() throws Exception {
@@ -50,66 +52,66 @@ public class TestChecksumUtils extends AbstractTestCommonsChecksum {
     public void adler32() throws IOException, DecoderException {
         byte[] adler32 = null;
         adler32 = ChecksumUtils.adler32(HELLO_WORLD_STRING);
-        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_ADLER32_HEX), adler32);
+        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_CHECKSUMS,"ADLER32"), adler32);
         adler32 = ChecksumUtils.adler32(HELLO_WORLD_BYTE_ARRAY);
-        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_ADLER32_HEX), adler32);
-        adler32 = ChecksumUtils.adler32(getHelloWorldInputStream());
-        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_ADLER32_HEX), adler32);
+        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_CHECKSUMS,"ADLER32"), adler32);
+        adler32 = ChecksumUtils.adler32(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
+        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_CHECKSUMS,"ADLER32"), adler32);
     }
 
     @Test
     public void adler32Hex() throws IOException {
         String adler32Hex = null;
         adler32Hex = ChecksumUtils.adler32Hex(HELLO_WORLD_STRING);
-        Assert.assertEquals(HELLO_WORLD_ADLER32_HEX, adler32Hex);
+        Assert.assertEquals(HELLO_WORLD_CHECKSUMS.get("ADLER32"), adler32Hex);
         adler32Hex = ChecksumUtils.adler32Hex(HELLO_WORLD_BYTE_ARRAY);
-        Assert.assertEquals(HELLO_WORLD_ADLER32_HEX, adler32Hex);
-        adler32Hex = ChecksumUtils.adler32Hex(getHelloWorldInputStream());
-        Assert.assertEquals(HELLO_WORLD_ADLER32_HEX, adler32Hex);
+        Assert.assertEquals(HELLO_WORLD_CHECKSUMS.get("ADLER32"), adler32Hex);
+        adler32Hex = ChecksumUtils.adler32Hex(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
+        Assert.assertEquals(HELLO_WORLD_CHECKSUMS.get("ADLER32"), adler32Hex);
     }
 
     @Test
     public void crc32() throws IOException, DecoderException {
         byte[] crc32 = null;
         crc32 = ChecksumUtils.crc32(HELLO_WORLD_STRING);
-        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_CRC32_HEX), crc32);
+        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_CHECKSUMS,"CRC32"), crc32);
         crc32 = ChecksumUtils.crc32(HELLO_WORLD_BYTE_ARRAY);
-        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_CRC32_HEX), crc32);
-        crc32 = ChecksumUtils.crc32(getHelloWorldInputStream());
-        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_CRC32_HEX), crc32);
+        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_CHECKSUMS,"CRC32"), crc32);
+        crc32 = ChecksumUtils.crc32(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
+        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_CHECKSUMS,"CRC32"), crc32);
     }
 
     @Test
     public void crc32Hex() throws IOException {
         String crc32Hex = null;
         crc32Hex = ChecksumUtils.crc32Hex(HELLO_WORLD_STRING);
-        Assert.assertEquals(HELLO_WORLD_CRC32_HEX, crc32Hex);
+        Assert.assertEquals(HELLO_WORLD_CHECKSUMS.get("CRC32"), crc32Hex);
         crc32Hex = ChecksumUtils.crc32Hex(HELLO_WORLD_BYTE_ARRAY);
-        Assert.assertEquals(HELLO_WORLD_CRC32_HEX, crc32Hex);
-        crc32Hex = ChecksumUtils.crc32Hex(getHelloWorldInputStream());
-        Assert.assertEquals(HELLO_WORLD_CRC32_HEX, crc32Hex);
+        Assert.assertEquals(HELLO_WORLD_CHECKSUMS.get("CRC32"), crc32Hex);
+        crc32Hex = ChecksumUtils.crc32Hex(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
+        Assert.assertEquals(HELLO_WORLD_CHECKSUMS.get("CRC32"), crc32Hex);
     }
 
     @Test
     public void fletcher32() throws IOException, DecoderException {
         byte[] fletcher32 = null;
         fletcher32 = ChecksumUtils.fletcher32(HELLO_WORLD_STRING);
-        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_FLETCHER32_HEX), fletcher32);
+        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_CHECKSUMS,"FLETCHER32"), fletcher32);
         fletcher32 = ChecksumUtils.fletcher32(HELLO_WORLD_BYTE_ARRAY);
-        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_FLETCHER32_HEX), fletcher32);
-        fletcher32 = ChecksumUtils.fletcher32(getHelloWorldInputStream());
-        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_FLETCHER32_HEX), fletcher32);
+        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_CHECKSUMS,"FLETCHER32"), fletcher32);
+        fletcher32 = ChecksumUtils.fletcher32(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
+        Assert.assertArrayEquals(hexToBytes(HELLO_WORLD_CHECKSUMS,"FLETCHER32"), fletcher32);
     }
 
     @Test
     public void fletcher32Hex() throws IOException {
         String fletcher32Hex = null;
         fletcher32Hex = ChecksumUtils.fletcher32Hex(HELLO_WORLD_STRING);
-        Assert.assertEquals(HELLO_WORLD_FLETCHER32_HEX, fletcher32Hex);
+        Assert.assertEquals(HELLO_WORLD_CHECKSUMS.get("FLETCHER32"), fletcher32Hex);
         fletcher32Hex = ChecksumUtils.fletcher32Hex(HELLO_WORLD_BYTE_ARRAY);
-        Assert.assertEquals(HELLO_WORLD_FLETCHER32_HEX, fletcher32Hex);
-        fletcher32Hex = ChecksumUtils.fletcher32Hex(getHelloWorldInputStream());
-        Assert.assertEquals(HELLO_WORLD_FLETCHER32_HEX, fletcher32Hex);
+        Assert.assertEquals(HELLO_WORLD_CHECKSUMS.get("FLETCHER32"), fletcher32Hex);
+        fletcher32Hex = ChecksumUtils.fletcher32Hex(new ByteArrayInputStream(HELLO_WORLD_BYTE_ARRAY));
+        Assert.assertEquals(HELLO_WORLD_CHECKSUMS.get("FLETCHER32"), fletcher32Hex);
     }
 
     @After
