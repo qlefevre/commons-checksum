@@ -20,5 +20,5 @@ env:
   - MAVEN=3.3.3
   - MAVEN=3.3.9
   - MAVEN=3.5.0
-  
-  script: mvn clean verify
+
+script: mvn clean verify
