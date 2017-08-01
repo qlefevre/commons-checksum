@@ -1,4 +1,4 @@
-# commons-checksum
+# commons-checksum [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.qlefevre/commons-checksum/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.qlefevre/commons-checksum)
 
 Commons Checksum provides functional utilities for working with common checksums and hashes. Project relies on the great utilities providing by the DigestUtils class of Apache Commons Codec project.
 
