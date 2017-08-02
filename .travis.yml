@@ -1,3 +1,8 @@
 language: java
 sudo: false
 script: mvn clean package
+jdk:
+  - openjdk6
+  - openjdk7
+  - oraclejdk7
+  - oraclejdk8
