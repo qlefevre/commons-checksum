@@ -6,5 +6,7 @@ jdk:
   - openjdk7
   - oraclejdk7
   - oraclejdk8
+env:
+  - MAVEN=3.2.5
 after_success:
   - bash <(curl -s https://codecov.io/bash)
