@@ -4,7 +4,6 @@ script: mvn clean package
 jdk:
   - openjdk6
   - openjdk7
-  - oraclejdk7
   - oraclejdk8
 env:
   - MAVEN=3.2.5
