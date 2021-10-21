@@ -1,4 +1,7 @@
-# commons-checksum [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.qlefevre/commons-checksum/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.qlefevre/commons-checksum) [![Build Status](https://travis-ci.com/qlefevre/commons-checksum.svg)](https://travis-ci.com/qlefevre/commons-checksum) [![Coverage](https://codecov.io/gh/qlefevre/commons-checksum/branch/master/graph/badge.svg)](https://codecov.io/gh/qlefevre/commons-checksum)
+# commons-checksum 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.qlefevre/commons-checksum/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.qlefevre/commons-checksum) 
+[![Build Status](https://travis-ci.com/qlefevre/commons-checksum.svg?branch=master)](https://travis-ci.com/qlefevre/commons-checksum)
+[![Coverage](https://codecov.io/gh/qlefevre/commons-checksum/branch/master/graph/badge.svg)](https://codecov.io/gh/qlefevre/commons-checksum)
 
 Commons Checksum provides functional utilities for working with common checksums and hashes. Project relies on the great utilities providing by the DigestUtils class of Apache Commons Codec project.
 
